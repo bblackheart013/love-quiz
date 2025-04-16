@@ -1,4 +1,3 @@
-// In your EnhancedResults.jsx file
 import React, { useState, useEffect } from 'react';
 import './results.css';
 

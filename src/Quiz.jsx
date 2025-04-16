@@ -1,20 +1,10 @@
 import React, { useState } from 'react';
 import './index.css';
-
 import './results.css';
 import EnhancedResults from './EnhancedResults';
-console.log("LoveCompatibilityQuiz loaded");
-const LoveCompatibilityQuiz = () => {
-  const [currentStep, setCurrentStep] = useState(0);
-  const [answers, setAnswers] = useState({});
-  const [result, setResult] = useState(null);
-  const [partnerName, setPartnerName] = useState('');
-  const [userName, setUserName] = useState('');
-  console.log("Current step:", currentStep);
-  console.log("Questions:", questions);
-  console.log("Current question object:", questions[currentStep]);
-  console.log("Answers so far:", answers);
 
+const LoveCompatibilityQuiz = () => {
+  // Define questions BEFORE using them
   const questions = [
     {
       id: 'names',
@@ -104,6 +94,17 @@ const LoveCompatibilityQuiz = () => {
       ]
     }
   ];
+
+  const [currentStep, setCurrentStep] = useState(0);
+  const [answers, setAnswers] = useState({});
+  const [result, setResult] = useState(null);
+  const [partnerName, setPartnerName] = useState('');
+  const [userName, setUserName] = useState('');
+  
+  console.log("Current step:", currentStep);
+  console.log("Questions:", questions);
+  console.log("Current question object:", questions[currentStep]);
+  console.log("Answers so far:", answers);
 
   const calculateCompatibility = () => {
     // This is a simplified compatibility calculation
@@ -264,7 +265,7 @@ const LoveCompatibilityQuiz = () => {
   // Render names input step
   const renderNamesStep = () => {
     return (
-        <div className="quiz-container w-full max-w-xl mx-auto p-4 sm:p-8 rounded-lg">
+      <div className="quiz-container w-full max-w-xl mx-auto p-4 sm:p-8 rounded-lg">
         <h2>{questions[currentStep].title}</h2>
         <p>{questions[currentStep].question}</p>
         
@@ -272,13 +273,12 @@ const LoveCompatibilityQuiz = () => {
           <div className="input-group">
             <label>Your Name</label>
             <input
-  type="text"
-  value={userName}
-  onChange={(e) => setUserName(e.target.value)}
-  placeholder="Your name"
-  className="w-full p-3 text-base rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-red-400"
-/>
-
+              type="text"
+              value={userName}
+              onChange={(e) => setUserName(e.target.value)}
+              placeholder="Your name"
+              className="w-full p-3 text-base rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-red-400"
+            />
           </div>
           
           <div className="input-group">
@@ -288,23 +288,15 @@ const LoveCompatibilityQuiz = () => {
               value={partnerName}
               onChange={(e) => setPartnerName(e.target.value)}
               placeholder="Partner's name"
+              className="w-full p-3 text-base rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-red-400"
             />
           </div>
           
-          <button className="continue-btn" onClick={handleNameInput}>
-            Continue
-          </button>
-        </div>
-        
-        <div className="nav-buttons flex flex-col sm:flex-row gap-4 justify-between mt-6">
-
-          <div></div>
           <button 
-            className="next-btn"
-            onClick={handleNext}
-            disabled={!userName || !partnerName}
+            className="continue-btn w-full sm:w-auto py-3 px-6 mt-4 bg-white text-red-500 rounded-md font-semibold hover:bg-gray-100 transition-all"
+            onClick={handleNameInput}
           >
-            Next
+            Continue
           </button>
         </div>
       </div>
@@ -316,17 +308,17 @@ const LoveCompatibilityQuiz = () => {
     const question = questions[currentStep];
     
     return (
-      <div className="quiz-container">
+      <div className="quiz-container w-full max-w-xl mx-auto p-4 sm:p-8 rounded-lg">
         <h2>{question.title}</h2>
         <p>{question.question}</p>
         
-        <div className={`option text-sm sm:text-base px-4 py-3 rounded-md transition border border-white hover:bg-white/20 ${
-  answers[question.id] === option.value ? 'bg-white/30 border-white' : 'bg-white/10'
-}`}>
+        <div className="options-container space-y-3 my-6">
           {question.options.map((option) => (
             <div 
               key={option.value}
-              className={`option ${answers[question.id] === option.value ? 'selected' : ''}`}
+              className={`option text-sm sm:text-base px-4 py-3 rounded-md transition border border-white hover:bg-white/20 ${
+                answers[question.id] === option.value ? 'bg-white/30 border-white' : 'bg-white/10'
+              }`}
               onClick={() => handleOptionSelect(question.id, option.value)}
             >
               {option.text}
@@ -334,12 +326,15 @@ const LoveCompatibilityQuiz = () => {
           ))}
         </div>
         
-        <div className="nav-buttons">
-          <button className="prev-btn" onClick={handlePrevious}>
+        <div className="nav-buttons flex flex-col sm:flex-row gap-4 justify-between mt-6">
+          <button 
+            className="prev-btn w-full sm:w-auto py-2 px-4 bg-transparent border border-white text-white rounded-md hover:bg-white/10 transition-all"
+            onClick={handlePrevious}
+          >
             Previous
           </button>
           <button 
-            className="next-btn"
+            className="next-btn w-full sm:w-auto py-2 px-4 bg-white text-red-500 rounded-md font-semibold hover:bg-gray-100 transition-all"
             onClick={handleNext}
             disabled={!answers[question.id]}
           >
@@ -350,66 +345,32 @@ const LoveCompatibilityQuiz = () => {
     );
   };
 
-  // Render results
-  const renderResults = () => {
-    return (
-      <div className="results-container">
-        <h1>Your Love Compatibility Results</h1>
-        
-        {renderCompatibilityMeter()}
-        
-        <div className="result-description">
-          <p>{result.description}</p>
-        </div>
-        
-        <div className="result-actions">
-          <button className="restart-btn" onClick={handleRestart}>
-            Take Quiz Again
-          </button>
-          
-          <a href="/date-ideas" className="date-ideas-link">
-            Generate Date Ideas
-          </a>
-        </div>
-        
-        <div className="date-prompt">
-          <h2>All that's left? Go on the date!</h2>
-          <p>Let us handle the planning, so you can focus on what matters - making a connection</p>
-          
-          <a href="/date-ideas" className="get-date-ideas-btn">
-            Get Date Ideas ↑
-          </a>
-        </div>
-      </div>
-    );
-  };
-
   return (
     <div className="love-quiz-page px-4 sm:px-8 md:px-16">
-      <header className="site-header">
-  <span className="site-name">yourmove.ai</span>
-  
-  <nav>
-    <a href="/chat-assistant">Chat Assistant</a>
-    <a href="/profile-writer">Profile Writer</a>
-    <a href="/profile-review">Profile Review</a>
-    <a href="/ai-photos">AI Enhanced Photos</a>
-    <a href="/blog">Blog</a>
-    <a href="/affiliate">Affiliate</a>
-  </nav>
-  
-  <button className="get-started-btn">Get Started</button>
-</header>
+      <header className="site-header py-4 px-6 flex justify-between items-center bg-red-500 text-white">
+        <span className="site-name text-xl font-bold">yourmove.ai</span>
+        
+        <nav className="hidden md:flex space-x-6">
+          <a href="/chat-assistant" className="hover:underline">Chat Assistant</a>
+          <a href="/profile-writer" className="hover:underline">Profile Writer</a>
+          <a href="/profile-review" className="hover:underline">Profile Review</a>
+          <a href="/ai-photos" className="hover:underline">AI Enhanced Photos</a>
+          <a href="/blog" className="hover:underline">Blog</a>
+          <a href="/affiliate" className="hover:underline">Affiliate</a>
+        </nav>
+        
+        <button className="get-started-btn py-2 px-4 bg-white text-red-500 rounded-md font-semibold">Get Started</button>
+      </header>
       
-      <main>
-        <section className="quiz-header">
-        <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center">
-  Love Compatibility Quiz
-</h1>
+      <main className="max-w-4xl mx-auto py-8">
+        <section className="quiz-header mb-8">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center">
+            Love Compatibility Quiz
+          </h1>
 
-<p className="text-sm sm:text-base md:text-lg text-gray-700 text-center mt-2">
-  Discover how compatible you are with your partner
-</p>
+          <p className="text-sm sm:text-base md:text-lg text-gray-700 text-center mt-2">
+            Discover how compatible you are with your partner
+          </p>
         </section>
         
         {!result && renderProgressBar()}
@@ -429,4 +390,5 @@ const LoveCompatibilityQuiz = () => {
     </div>
   );
 };
+
 export default LoveCompatibilityQuiz;
