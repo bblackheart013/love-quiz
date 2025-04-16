@@ -29,9 +29,7 @@ Features dynamic questions, personalized results, animated transitions, and soci
 
 ---
 
-## 🧠 Folder Structure
-
-src/ ├── App.jsx ├── App.css ├── main.jsx ├── index.css ├── Quiz.jsx ├── EnhancedResults.jsx ├── results.css └── assets/
+<pre> ## 📂 Folder Structure ``` love-quiz/ ├── public/ # Static assets ├── src/ │ ├── assets/ # Images, icons │ ├── App.jsx # Root component │ ├── App.css # Global styles │ ├── main.jsx # Vite entry point │ ├── index.css # Tailwind base │ ├── Quiz.jsx # Quiz logic + flow │ ├── EnhancedResults.jsx # Animated results view │ └── results.css # Result screen styling ├── .gitignore ├── index.html ├── package.json ├── postcss.config.js ├── tailwind.config.js └── vite.config.js ``` </pre>
 
 
 ---
@@ -48,4 +46,3 @@ Deployed via Vercel. Pushes to main auto-deploy.
 
 👤 Author
 Made with ❤️ by Mohd Sarfaraz Faiyaz
-GitHub ・ LinkedIn
