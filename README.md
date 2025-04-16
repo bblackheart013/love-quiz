@@ -29,7 +29,26 @@ Features dynamic questions, personalized results, animated transitions, and soci
 
 ---
 
-<pre> ## 📂 Folder Structure ``` love-quiz/ ├── public/ # Static assets ├── src/ │ ├── assets/ # Images, icons │ ├── App.jsx # Root component │ ├── App.css # Global styles │ ├── main.jsx # Vite entry point │ ├── index.css # Tailwind base │ ├── Quiz.jsx # Quiz logic + flow │ ├── EnhancedResults.jsx # Animated results view │ └── results.css # Result screen styling ├── .gitignore ├── index.html ├── package.json ├── postcss.config.js ├── tailwind.config.js └── vite.config.js ``` </pre>
+love-quiz/
+├── public/                     # Static files (favicon, etc.)
+├── src/                        # Source code
+│   ├── assets/                 # Images, icons, and design assets
+│   ├── components/
+│   │   ├── Quiz.jsx            # Main quiz flow logic
+│   │   ├── EnhancedResults.jsx # Animated result screen
+│   ├── styles/
+│   │   ├── App.css             # Global styles
+│   │   └── results.css         # Styles for results page
+│   ├── App.jsx                 # Root component
+│   ├── main.jsx                # Vite app entry
+│   └── index.css               # Tailwind base + resets
+├── index.html                  # HTML entry template
+├── package.json                # Project metadata and scripts
+├── postcss.config.js           # PostCSS config
+├── tailwind.config.js          # Tailwind config
+├── vite.config.js              # Vite dev server config
+└── .gitignore
+
 
 
 ---
