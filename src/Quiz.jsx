@@ -10,6 +10,10 @@ const LoveCompatibilityQuiz = () => {
   const [result, setResult] = useState(null);
   const [partnerName, setPartnerName] = useState('');
   const [userName, setUserName] = useState('');
+  console.log("Current step:", currentStep);
+  console.log("Questions:", questions);
+  console.log("Current question object:", questions[currentStep]);
+  console.log("Answers so far:", answers);
 
   const questions = [
     {
@@ -425,5 +429,4 @@ const LoveCompatibilityQuiz = () => {
     </div>
   );
 };
-
 export default LoveCompatibilityQuiz;
