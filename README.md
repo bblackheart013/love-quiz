@@ -1,12 +1,51 @@
-# React + Vite
+# 💘 Love Compatibility Quiz
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, animated love compatibility quiz built with **React**, **Vite**, and **Tailwind CSS**.  
+Features dynamic questions, personalized results, animated transitions, and social media sharing — inspired by [yourmove.ai](https://yourmove.ai).
 
-Currently, two official plugins are available:
+👉 **Live Demo**: [https://love-quiz-iota.vercel.app](https://love-quiz-iota.vercel.app)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## 🚀 Tech Stack
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- ⚛️ React (Component-based UI)
+- ⚡ Vite (Fast dev & build)
+- 🎨 Tailwind CSS (Utility-first styling)
+- 🎞 Framer Motion (Smooth animations)
+- 🌐 Vercel (Production deployment)
+- 🔗 Ngrok (for local sharing in dev)
+
+---
+
+## ✨ Features
+
+- Multi-step animated quiz flow
+- Name-based personalization
+- Compatibility scoring logic
+- Animated result card with heart pulse
+- Social sharing (Facebook, Twitter, WhatsApp)
+- Responsive and mobile-friendly design
+
+---
+
+## 🧠 Folder Structure
+
+src/ ├── App.jsx ├── App.css ├── main.jsx ├── index.css ├── Quiz.jsx ├── EnhancedResults.jsx ├── results.css └── assets/
+
+
+---
+
+## 🧪 Local Development
+
+```bash
+npm install     # Install dependencies
+npm run dev     # Run local dev server
+
+Deployed via Vercel. Pushes to main auto-deploy.
+
+🔗 Live URL: https://love-quiz-iota.vercel.app
+
+👤 Author
+Made with ❤️ by Mohd Sarfaraz Faiyaz
+GitHub ・ LinkedIn
