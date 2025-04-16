@@ -31,7 +31,29 @@ Features dynamic questions, personalized results, animated transitions, and soci
 
 ## 📁 Folder Structure
 
-love-quiz/ ├── public/ # Static files (e.g., favicon) ├── src/ # Source code │ ├── assets/ # Images, icons, etc. │ ├── components/ # Reusable UI components │ │ ├── Quiz.jsx # Quiz logic and flow │ │ └── EnhancedResults.jsx # Animated results display │ ├── styles/ # Tailwind + component CSS │ │ ├── App.css │ │ └── results.css │ ├── App.jsx # Root React component │ ├── main.jsx # Entry point for Vite │ └── index.css # Tailwind base + resets ├── index.html # App HTML shell ├── package.json # Project metadata + dependencies ├── postcss.config.js # PostCSS integration ├── tailwind.config.js # Tailwind setup ├── vite.config.js # Vite dev server config └── .gitignore # Ignore rules
+Organized by responsibility for clarity and scalability.
+
+```bash
+love-quiz/
+├── public/                  # Static files (favicon, etc.)
+├── src/                     # Source code
+│   ├── assets/              # Images, icons, and design assets
+│   ├── components/          # Quiz + Results components
+│   │   ├── Quiz.jsx         # Main quiz flow logic
+│   │   └── EnhancedResults.jsx  # Animated result screen
+│   ├── styles/              # Scoped + global styles
+│   │   ├── App.css          # Global styles
+│   │   └── results.css      # Styles for results page
+│   ├── App.jsx              # Root React component
+│   ├── main.jsx             # Vite app entry point
+│   └── index.css            # Tailwind base + resets
+├── index.html               # App HTML shell
+├── package.json             # Project metadata and scripts
+├── postcss.config.js        # PostCSS config
+├── tailwind.config.js       # Tailwind config
+├── vite.config.js           # Vite dev server config
+└── .gitignore               # Ignore rules
+```
 
 ---
 
