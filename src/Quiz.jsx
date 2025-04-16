@@ -260,7 +260,7 @@ const LoveCompatibilityQuiz = () => {
   // Render names input step
   const renderNamesStep = () => {
     return (
-      <div className="quiz-container">
+        <div className="quiz-container w-full max-w-xl mx-auto p-4 sm:p-8 rounded-lg">
         <h2>{questions[currentStep].title}</h2>
         <p>{questions[currentStep].question}</p>
         
@@ -268,11 +268,13 @@ const LoveCompatibilityQuiz = () => {
           <div className="input-group">
             <label>Your Name</label>
             <input
-              type="text"
-              value={userName}
-              onChange={(e) => setUserName(e.target.value)}
-              placeholder="Your name"
-            />
+  type="text"
+  value={userName}
+  onChange={(e) => setUserName(e.target.value)}
+  placeholder="Your name"
+  className="w-full p-3 text-base rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-red-400"
+/>
+
           </div>
           
           <div className="input-group">
@@ -290,7 +292,8 @@ const LoveCompatibilityQuiz = () => {
           </button>
         </div>
         
-        <div className="nav-buttons">
+        <div className="nav-buttons flex flex-col sm:flex-row gap-4 justify-between mt-6">
+
           <div></div>
           <button 
             className="next-btn"
@@ -313,7 +316,9 @@ const LoveCompatibilityQuiz = () => {
         <h2>{question.title}</h2>
         <p>{question.question}</p>
         
-        <div className="options-container">
+        <div className={`option text-sm sm:text-base px-4 py-3 rounded-md transition border border-white hover:bg-white/20 ${
+  answers[question.id] === option.value ? 'bg-white/30 border-white' : 'bg-white/10'
+}`}>
           {question.options.map((option) => (
             <div 
               key={option.value}
@@ -376,7 +381,7 @@ const LoveCompatibilityQuiz = () => {
   };
 
   return (
-    <div className="love-quiz-page">
+    <div className="love-quiz-page px-4 sm:px-8 md:px-16">
       <header className="site-header">
   <span className="site-name">yourmove.ai</span>
   
@@ -394,8 +399,13 @@ const LoveCompatibilityQuiz = () => {
       
       <main>
         <section className="quiz-header">
-          <h1>Love Compatibility Quiz</h1>
-          <p>Discover how compatible you are with your partner</p>
+        <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center">
+  Love Compatibility Quiz
+</h1>
+
+<p className="text-sm sm:text-base md:text-lg text-gray-700 text-center mt-2">
+  Discover how compatible you are with your partner
+</p>
         </section>
         
         {!result && renderProgressBar()}
