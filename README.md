@@ -29,6 +29,8 @@ Features dynamic questions, personalized results, animated transitions, and soci
 
 ---
 
+## 📁 Folder Structure
+
 love-quiz/
 ├── public/                     # Static files (favicon, etc.)
 ├── src/                        # Source code
